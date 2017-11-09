@@ -1,0 +1,15 @@
+{% extends "LouvreBilletBundle::layout.html.twig" %}
+
+{% block main_content %}
+
+<h3>Votre commande à bien été validée!</h3>
+
+<p style="text-align: justify;"> Bonjour {{ shoppingCart.userId.fullname }}! Votre commande n° {{ shoppingCart.bookingKey }} d'un montant de {{ shoppingCart.bookingPrice }}€ à été entièrement validée. Veuillez trouver ci-joint vos billets. Gardez les précieusement, vous devrez les présenter afin d'entrer au musée, sur papier ou smartphone. En cas de tarif réduit, un justificatif pourra vous être demandé. </p>
+
+<img src="{{ absolute_url(asset('images/logo.png')) }}">
+
+Le musée du Louvre vous remercie pour cette commande et vous souhaite une agréable visite.
+
+
+
+{% endblock %}

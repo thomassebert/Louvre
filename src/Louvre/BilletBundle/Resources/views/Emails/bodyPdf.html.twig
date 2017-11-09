@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<!-- HEAD -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Content-Type" content="UTF-8">
+        
+     <!-- TITLE -->
+        <title> Billets </title>
+     <!-- CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     </head>
+
+    <body class="container">
+        
+        {% for booking in bookings %}  
+            <section class="col s12 mainColor white-text">
+                <div class="logoBar mainColor center-align">
+                    <img class="mainLogo" src="{{ absolute_url(asset('images/logo.png')) }}" alt="Logo du musée">
+                </div>
+                
+                <div class="col s6">
+                    {{ booking.name}} {{ booking.firstname}}
+                </div>
+                <div class="col s3 offset-s3">
+                    {{ booking.ticketPrice}} €
+                </div>
+            
+            
+                <div class="col s6">
+                    Date de visite: {{ booking.calendarId.day|date('d/m/Y') }} 
+                </div>
+                <div class="col s6">
+                    Type de billet: {{ booking.bookingType}} 
+                </div>
+            
+            
+                <div class="col s6">
+                    Date de naissance: {{ booking.birthDate|date('d/m/Y') }} 
+                </div>
+                <div class="col s6">
+                    Pays: {{ booking.country}} 
+                </div>
+            
+            
+                <div class="col s6">
+                    Tarif réduit: {{ booking.discountTicket ? 'OUI' : 'NON' }} 
+                </div>
+                <div class="col s6">
+                    Code de réservation: {{ datas.bookingKey }} 
+                </div>
+                
+            </section>  
+            <div class="divider"></div>
+
+        {% endfor %}
+    
+
+        <script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+        {% block js %}{% endblock %}
+
+     </body>
+
+     <style type="text/css">
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+          }
+
+        main {
+            flex: 1 0 auto;
+          }
+
+        .logoBar {
+            width: 100vw;
+            height: 150px;
+            padding-top: 20px; 
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .logoBar {
+                height: 100px;
+                padding-top: 10px; 
+            }
+
+            .mainLogo {
+                height: 80px;
+            }
+        }
+
+        .mainColor {
+            background-color: rgb(60, 60, 60);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            min-height: 400px;
+
+        }
+
+        .museumMap {
+            margin-top: 20px;
+            margin-top: 20px;
+        }
+
+        .socialIcons {
+            margin-top: 30px;
+        }
+
+        section {
+            width: 100%;
+        }
+
+     </style>
+
+ </html>
